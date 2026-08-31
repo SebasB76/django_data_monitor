@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=l1-apdt!en55*hmlr1gva3g8gxg4d35nqd3=+rr)^b2@mec@k'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-solo-para-local')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -136,18 +136,8 @@ MAILERS = {
 }
 
 
-ALLOWED_HOSTS = [
-    "*",
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://localhost:8000",
-    "http://127.0.0.1:8000",
-]
-
 LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-solo-para-local')
